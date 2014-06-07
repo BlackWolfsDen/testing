@@ -13,4 +13,6 @@ local gold = 100000 -- 10 gold so deposit should be 1 gold.
 	else
 		plr:SendBroadcastMessage("You loot "..Money.Gold..Money.SilverComma..Money.Silver..Money.CopperComma..Money.Copper.."")
 	end
+end
+
 RegisterPlayerEvent(37, GBank_Loot)
