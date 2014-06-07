@@ -1,3 +1,4 @@
+function GBank_Loot(eventid, player, gold)
 local gold = 100000 -- 10 gold so deposit should be 1 gold.
 	if(player:IsInGuild()) then
 -- TrinityCore rev. 0a1652d5a608+ 2014-03-13 20:46:21 +0200 (master branch) (Win32, Release) (worldserver-daemon)
@@ -12,3 +13,4 @@ local gold = 100000 -- 10 gold so deposit should be 1 gold.
 	else
 		plr:SendBroadcastMessage("You loot "..Money.Gold..Money.SilverComma..Money.Silver..Money.CopperComma..Money.Copper.."")
 	end
+RegisterPlayerEvent(37, GBank_Loot)
