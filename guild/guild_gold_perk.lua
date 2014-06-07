@@ -9,9 +9,6 @@ local gold = 100000 -- 10 gold so deposit should be 1 gold.
 	    data:WriteUByte(0);
 	    data:WriteGUID(gold*0.1);-- 10% of looted gold.
 	    player:GetGuildId():SendPacket(data);
-		player:SendBroadcastMessage("You loot "..Money.Gold..Money.SilverComma..Money.Silver..Money.CopperComma..Money.Copper..". ("..(math.floor(gold*convert)/10^0)..currency.." deposited to guild bank)")
-	else
-		plr:SendBroadcastMessage("You loot "..Money.Gold..Money.SilverComma..Money.Silver..Money.CopperComma..Money.Copper.."")
 	end
 end
 
