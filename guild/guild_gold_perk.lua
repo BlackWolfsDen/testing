@@ -1,15 +1,7 @@
-function GBank_Loot(eventid, player, gold)
-local gold = 100000 -- 10 gold so deposit should be 1 gold.
-	if(player:IsInGuild()) then
--- TrinityCore rev. 0a1652d5a608+ 2014-03-13 20:46:21 +0200 (master branch) (Win32, Release) (worldserver-daemon)
--- player:DepositBankMoney(gold*0.1)-- (DepositBankMoney)nil value
-	    local data = CreatePacket(0x03EC, (1+8+1+8)) -- 0x03EC
-	    data:WriteUByte(0);
-	    data:WriteGUID(12496);-- GUID of guild vault in orgrimmar testing using horde toon while close to guild vault.
-	    data:WriteUByte(0);
-	    data:WriteGUID(gold*0.1);-- 10% of looted gold.
-	    player:GetGuildId():SendPacket(data);
+local function OnLootMoney(eventid, player, amount)
+	if (player:IsInGuild()) then
+		player:GetGuild():DepositBankMoney(player, math.floor(amount*0.1))
 	end
 end
 
-RegisterPlayerEvent(37, GBank_Loot)
+RegisterPlayerEvent(37, OnLootMoney)
