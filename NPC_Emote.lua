@@ -1,3 +1,8 @@
+-- this is supposed to hook the script to creature event 8 on recieve emote
+-- if the emote matches a pre-determined emote value then a pre-determined return emote
+-- will happen. orrr... the creature may just attack you.... its a work in progress
+-- i may just redo the table completely to fix some glitches errr stone walls..
+ 
 NPCEMOTE = {};
 local NPCEMOTEIDS = {};
 
