@@ -2,7 +2,7 @@
 -- if the emote matches a pre-determined emote value then a pre-determined return emote
 -- will happen. orrr... the creature may just attack you.... its a work in progress
 
-local Emotemax = 99
+local Emotemax = 10
 				
 local function NPC_EMOTE(event, creature, player, emoteid)
 
