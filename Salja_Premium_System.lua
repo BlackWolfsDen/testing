@@ -8,9 +8,7 @@ function Player_Premium_Table(event, player)
 	PREM[player:GetAccountId()] = {
 		Name = Q:GetString(0),
 		Premium = Q:GetUInt32(1)
-									};
-	print(PREM[player:GetAccountId()].Name.." :Premium table loaded.")
-print(PREM[player:GetAccountId()].Premium)
+					};
 end
 
 local function PremiumOnLogin(event, player)  -- Send a welcome massage to player and tell him is premium or not
@@ -19,6 +17,8 @@ local function PremiumOnLogin(event, player)  -- Send a welcome massage to playe
     else
 		player:SendBroadcastMessage("|CFFE55BB0[Premium]|r|CFFFE8A0E Welcome "..player:GetName().." you are NOT Premium! |r")
     end
+print(PREM[player:GetAccountId()].Premium)
+print(PREM[player:GetAccountId()].Name.." :Premium table loaded.")
 end
 
 local function PremiumOnChat(event, player, msg, _, lang)
