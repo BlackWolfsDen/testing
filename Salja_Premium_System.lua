@@ -5,7 +5,7 @@
 -- name `premium` : Datatype = TINYINT : Length/Set = 1 : Unsigned = checked : Default = 0
 
 -- NOT YET TESTED . just theoretical . I MUST test this FIRST .. give it a good work over  .. make it smooooooootttthhhhhhhhhh. yea ... ocd...
--- i will remove lines 6 4x when its done
+-- i will remove lines 6 3x when its done
 -- for TrintyCore2 3.3.5 Eluna
 
 ACCT = {}
