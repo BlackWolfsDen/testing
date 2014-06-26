@@ -12,11 +12,12 @@ function Player_Premium_Table(event, player)
 end
 
 local function PremiumOnLogin(event, player)  -- Send a welcome massage to player and tell him is premium or not
-   if(PREM[player:GetAccountId()].Premium==1)then
+	if(PREM[player:GetAccountId()].Premium==1)then
 		player:SendBroadcastMessage("|CFFE55BB0[Premium]|r|CFFFE8A0E Welcome "..player:GetName().." you are Premium! |r")
-    else
+	else
 		player:SendBroadcastMessage("|CFFE55BB0[Premium]|r|CFFFE8A0E Welcome "..player:GetName().." you are NOT Premium! |r")
-    end
+		player:SendBroadcastMessage("|CFFE55BB0[Premium]|r|CFFFE8A0E You can donate to earn the Premium Rank.|r")
+    	end
 print(PREM[player:GetAccountId()].Premium)
 print(PREM[player:GetAccountId()].Name.." :Premium table loaded.")
 end
@@ -26,7 +27,7 @@ local function PremiumOnChat(event, player, msg, _, lang)
 		if(PREM[player:GetAccountId()].Premium==1)then
             OnPremiumHello(event, player)
         else
-            player:SendBroadcastMessage("|CFFE55BB0[Premium]|r|CFFFE8A0E Sorry "..player:GetName().." you are NOT Premium! |r")
+            player:SendBroadcastMessage("|CFFE55BB0[Premium]|r|CFFFE8A0E Sorry "..player:GetName().." you dont have Premium rank. |r")
         end
     end
 end
