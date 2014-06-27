@@ -8,8 +8,8 @@
 -- i will remove lines 6 3x when its done
 -- for TrintyCore2 3.3.5 Eluna
 
-ACCT = {}
-print ("Premium System Table: initialized and allocated.")
+PREM = {}
+print ("Salja's Premium System Table: initialized and allocated.")
 
 local function PremiumOnLogin(event, player)  -- Send a welcome massage to player and tell him is premium or not
 
