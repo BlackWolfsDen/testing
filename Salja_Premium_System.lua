@@ -55,20 +55,26 @@ function OnPremiumSelect(event, player, _, sender, intid, code)
 	
 	if(intid==1) then               -- Close the Gossip
         	player:GossipComplete()
- 	elseif(intid==2) then           -- Send Bank Window
+        end
+ 	if(intid==2) then           -- Send Bank Window
         	player:SendShowBank(player)
-	elseif(intid==3) then           -- Send Auctions Window
+        end
+	if(intid==3) then           -- Send Auctions Window
         	player:SendAuctionMenu(player)
-	elseif(intid==4)then		-- do something
-	elseif(intid==5)then		-- do something
-	elseif(intid==6)then		-- do something
+        end
+	if(intid==4)then		-- do something
+	end
+	if(intid==5)then		-- do something
+	end
+	if(intid==6)then		-- do something
+	end
 	if (intid==7) then		-- Repair all items 100%
 		player:DurabilityRepairAll(100,100)
 		player:GossipComplete()
 	end
-	elseif(intid > 7) then          -- Go back to main menu
-	player:GossipComplete()
-	OnPremiumHello(event, player)
+	if(intid > 7) then          -- Go back to main menu
+		player:GossipComplete()
+		OnPremiumHello(event, player)
 	end
     -- Room for more premium things
 end
