@@ -40,28 +40,33 @@ local function PremiumOnChat(event, player, msg, _, lang)
 end
 
 function OnPremiumHello(event, player)
-    player:GossipClearMenu()
-    player:GossipMenuAddItem(0, "Show Bank", 0, 2)
-    player:GossipMenuAddItem(0, "Show AuctionsHouse", 0, 3)
-    player:GossipMenuAddItem(0, "Armor", 0, 4)
-    player:GossipMenuAddItem(0, "Weapons", 0, 5)
-    player:GossipMenuAddItem(0, "Misc Premium Items", 0, 6)
-    player:GossipMenuAddItem(0, "Nevermind..", 0, 1)
-    player:GossipSendMenu(1, player, 100)
+	player:GossipClearMenu()
+	player:GossipMenuAddItem(0, "Show Bank", 0, 2)
+	player:GossipMenuAddItem(0, "Show AuctionsHouse", 0, 3)
+	player:GossipMenuAddItem(0, "Armor", 0, 4)
+	player:GossipMenuAddItem(0, "Weapons", 0, 5)
+	player:GossipMenuAddItem(0, "Misc Premium Items", 0, 6)
+	player:GossipMenuAddItem(0, "Repair my items", 0, 7)
+	player:GossipMenuAddItem(0, "Nevermind..", 0, 1)
+	player:GossipSendMenu(1, player, 100)
 end
 
 function OnPremiumSelect(event, player, _, sender, intid, code)
 	
 	if(intid==1) then               -- Close the Gossip
-        player:GossipComplete()
+        	player:GossipComplete()
  	elseif(intid==2) then           -- Send Bank Window
-        player:SendShowBank(player)
+        	player:SendShowBank(player)
 	elseif(intid==3) then           -- Send Auctions Window
-        player:SendAuctionMenu(player)
+        	player:SendAuctionMenu(player)
 	elseif(intid==4)then		-- do something
 	elseif(intid==5)then		-- do something
 	elseif(intid==6)then		-- do something
-	elseif(intid > 6) then          -- Go back to main menu
+	if (intid==7) then		-- Repair all items 100%
+		player:DurabilityRepairAll(100,100)
+		player:GossipComplete()
+	end
+	elseif(intid > 7) then          -- Go back to main menu
 	player:GossipComplete()
 	OnPremiumHello(event, player)
 	end
