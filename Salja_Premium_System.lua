@@ -64,13 +64,13 @@ function OnPremiumSelect(event, player, _, sender, intid, code)
 	if(intid==3) then           -- Send Auctions Window
         	player:SendAuctionMenu(player)
         end
-	if(intid==4)then		-- do something
+	if(intid==4)then		-- send vendor window armor
 	end
-	if(intid==5)then		-- do something
+	if(intid==5)then		-- send vendor window weapons
 	end
-	if(intid==6)then		-- do something
+	if(intid==6)then		-- send vendor window misc premium items
 	end
-	if(intid==7)then          -- buff
+	if(intid==7)then          -- buff  me
 		for _, v in ipairs(BUFFS)do
 			player:AddAura(v, player)
 		end
