@@ -75,6 +75,7 @@ function OnPremiumSelect(event, player, _, sender, intid, code)
 		a=1, #BUFFS do
 			player:AddAura(BUFFS[a], player)
 		end
+	end
 	if (intid==8) then		-- Repair all items 100%
 		player:DurabilityRepairAll(100,100)
 		player:GossipComplete()
