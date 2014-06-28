@@ -7,8 +7,10 @@
 -- NOT YET TESTED . just theoretical . I MUST test this FIRST .. give it a good work over  .. make it smooooooootttthhhhhhhhhh. yea ... ocd...
 -- i will remove lines 6 3x when its done
 -- for TrintyCore2 3.3.5 Eluna
+BUFFS = {};
+PREM = {};
+local BUFFS = {{48074},{43223},{36880},{467},{48469},{48162},{23948},{24752},{16877},{10220},{13033},{11735},{10952}};
 
-PREM = {}
 print ("Salja's Premium System Table: initialized and allocated.")
 
 local function PremiumOnLogin(event, player)  -- Send a welcome massage to player and tell him is premium or not
@@ -46,7 +48,8 @@ function OnPremiumHello(event, player)
 	player:GossipMenuAddItem(0, "Armor", 0, 4)
 	player:GossipMenuAddItem(0, "Weapons", 0, 5)
 	player:GossipMenuAddItem(0, "Misc Premium Items", 0, 6)
-	player:GossipMenuAddItem(0, "Repair my items", 0, 7)
+	player:GossipMenuAddItem(0, "Buff me.", 0, 7)
+	player:GossipMenuAddItem(0, "Repair my items", 0, 8)
 	player:GossipMenuAddItem(0, "Nevermind..", 0, 1)
 	player:GossipSendMenu(1, player, 100)
 end
@@ -68,11 +71,15 @@ function OnPremiumSelect(event, player, _, sender, intid, code)
 	end
 	if(intid==6)then		-- do something
 	end
-	if (intid==7) then		-- Repair all items 100%
+	if(intid==7)then          -- buff
+		a=1, #BUFFS do
+			player:AddAura(BUFFS[a], player)
+		end
+	if (intid==8) then		-- Repair all items 100%
 		player:DurabilityRepairAll(100,100)
 		player:GossipComplete()
 	end
-	if(intid > 7) then          -- Go back to main menu
+	if(intid > 8) then          -- Go back to main menu
 		player:GossipComplete()
 		OnPremiumHello(event, player)
 	end
