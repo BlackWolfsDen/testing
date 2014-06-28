@@ -9,7 +9,7 @@
 -- for TrintyCore2 3.3.5 Eluna
 BUFFS = {};
 PREM = {};
-local BUFFS = {{48074},{43223},{36880},{467},{48469},{48162},{23948},{24752},{16877},{10220},{13033},{11735},{10952}};
+local BUFFS = {48074,43223,36880,467,48469,48162,23948,24752,16877,10220,13033,11735,10952};
 
 print ("Salja's Premium System Table: initialized and allocated.")
 
@@ -72,8 +72,8 @@ function OnPremiumSelect(event, player, _, sender, intid, code)
 	if(intid==6)then		-- do something
 	end
 	if(intid==7)then          -- buff
-		a=1, #BUFFS do
-			player:AddAura(BUFFS[a], player)
+		for _, v in ipairs(BUFFS)do
+			player:AddAura(v, player)
 		end
 	end
 	if (intid==8) then		-- Repair all items 100%
