@@ -36,20 +36,20 @@ local function PremiumOnChat(event, player, msg, _, lang)
 		if(PREM[player:GetAccountId()].Premium==1)then
             OnPremiumHello(event, player)
         else
-            player:SendBroadcastMessage("|CFFE55BB0[Premium]|r|CFFFE8A0E Sorry "..player:GetName().." you dont have Premium rank. |r")
+            player:SendBroadcastMessage("|CFFE55BB0[Premium]|r|CFFFE8A0E Sorry "..player:GetName().." you dont have the Premium rank. |r")
         end
     end
 end
 
 function OnPremiumHello(event, player)
 	player:GossipClearMenu()
-	player:GossipMenuAddItem(0, "Show Bank", 0, 2)
-	player:GossipMenuAddItem(0, "Show AuctionsHouse", 0, 3)
-	player:GossipMenuAddItem(0, "Armor", 0, 4)
-	player:GossipMenuAddItem(0, "Weapons", 0, 5)
-	player:GossipMenuAddItem(0, "Misc Premium Items", 0, 6)
+	player:GossipMenuAddItem(0, "Show Bank.", 0, 2)
+	player:GossipMenuAddItem(0, "Show AuctionsHouse.", 0, 3)
+	player:GossipMenuAddItem(0, "Armor.", 0, 4)
+	player:GossipMenuAddItem(0, "Weapons.", 0, 5)
+	player:GossipMenuAddItem(0, "Misc Premium Items.", 0, 6)
 	player:GossipMenuAddItem(0, "Buff me.", 0, 7)
-	player:GossipMenuAddItem(0, "Repair my items", 0, 8)
+	player:GossipMenuAddItem(0, "Repair my items.", 0, 8)
 	player:GossipMenuAddItem(0, "Nevermind..", 0, 1)
 	player:GossipSendMenu(1, player, 100)
 end
