@@ -45,11 +45,9 @@ function OnPremiumHello(event, player)
 	player:GossipClearMenu()
 	player:GossipMenuAddItem(0, "Show Bank.", 0, 2)
 	player:GossipMenuAddItem(0, "Show AuctionsHouse.", 0, 3)
-	player:GossipMenuAddItem(0, "Armor.", 0, 4)
-	player:GossipMenuAddItem(0, "Weapons.", 0, 5)
-	player:GossipMenuAddItem(0, "Misc Premium Items.", 0, 6)
-	player:GossipMenuAddItem(0, "Buff me.", 0, 7)
-	player:GossipMenuAddItem(0, "Repair my items.", 0, 8)
+	player:GossipMenuAddItem(0, "Summon the Premium Vendor.", 0, 4)
+	player:GossipMenuAddItem(0, "Buff me.", 0, 5)
+	player:GossipMenuAddItem(0, "Repair my items.", 0, 6)
 	player:GossipMenuAddItem(0, "Nevermind..", 0, 1)
 	player:GossipSendMenu(1, player, 100)
 end
@@ -64,23 +62,19 @@ function OnPremiumSelect(event, player, unit, sender, intid, code)
 	if(intid==3) then           -- Send Auctions Window
         	player:SendAuctionMenu(player)
         end
-	if(intid==4)then		-- send vendor window armor
+	if(intid==4)then		-- summon the premium vendor
 		AddVendorItem(100,25,1,1,3006)
 		player:SendVendorWindow(100)
 	end
-	if(intid==5)then		-- send vendor window weapons
-	end
-	if(intid==6)then		-- send vendor window misc premium items
-	end
-	if(intid==7)then          -- buff  me
+	if(intid==5)then          -- buff  me
 		for _, v in ipairs(BUFFS)do
 			player:AddAura(v, player)
 		end
 	end
-	if (intid==8) then		-- Repair all items 100%
+	if (intid==6) then		-- Repair all items 100%
 		player:DurabilityRepairAll(100,100)
 	end
-	if(intid > 8) then          -- Go back to main menu
+	if(intid > 6) then          -- Go back to main menu
 		player:GossipComplete()
 		OnPremiumHello(event, player)
 	end
