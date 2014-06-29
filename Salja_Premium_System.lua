@@ -66,7 +66,7 @@ function OnPremiumSelect(event, player, _, sender, intid, code)
         end
 	if(intid==4)then		-- send vendor window armor
 		AddVendorItem(100,25,1,1,3006)
-		player:SendVendorWindow(unit)
+		player:SendVendorWindow(100)
 	end
 	if(intid==5)then		-- send vendor window weapons
 	end
