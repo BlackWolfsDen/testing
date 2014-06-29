@@ -4,8 +4,8 @@
 -- just add 1 column to your auth.account table:
 -- name `premium` : Datatype = TINYINT : Length/Set = 1 : Unsigned = checked : Default = 0
 
--- NOT YET TESTED . just theoretical . I MUST test this FIRST .. give it a good work over  .. make it smooooooootttthhhhhhhhhh. yea ... ocd...
--- i will remove lines 6 3x when its done
+-- NOT YET FULLY TESTED . just theoretical .
+-- Buff me selection working. now everything is working except the vendor selections.
 -- for TrintyCore2 3.3.5 Eluna
 BUFFS = {};
 PREM = {};
