@@ -54,7 +54,7 @@ function OnPremiumHello(event, player)
 	player:GossipSendMenu(1, player, 100)
 end
 
-function OnPremiumSelect(event, player, _, sender, intid, code)
+function OnPremiumSelect(event, player, unit, sender, intid, code)
 	
 	if(intid==1) then               -- Close the Gossip
         end
