@@ -33,8 +33,9 @@ local function LottoLoader()
             item = LS:GetUInt32(1),
             timer = LS:GetUInt32(2),
             operation = LS:GetUInt32(3),
-            mumax = LS:GetUInt32(4)
-        }
+            mumax = LS:GetUInt32(4),
+            require = LS:GetUInt32(5)
+        };
     else
         error("No settings found for lotto, cant start")
     end
@@ -54,7 +55,7 @@ end
 local function Tally(event)
     
     -- Make this a config
-    if (#LottoEntries < 4) then
+    if (#LottoEntries < LottoSettings.require) then
         SendWorldMessage("Not enough Loco Lotto Entries this round.")
         return
     end
