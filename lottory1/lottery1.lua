@@ -45,8 +45,8 @@ local function LottoLoader()
             LottoEntries[LE:GetUInt32(0)] = {
                 guid = LE:GetUInt32(0),
                 count = LE:GetUInt32(1),
-                saved = true,
-            }
+                saved = true
+            };
         until not LE:NextRow()
     end
 end
