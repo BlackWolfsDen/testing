@@ -31,10 +31,11 @@ local function LottoLoader()
     if (LS) then
         LottoSettings = {
             item = LS:GetUInt32(1),
-            timer = LS:GetUInt32(2),
-            operation = LS:GetUInt32(3),
-            mumax = LS:GetUInt32(4),
-            require = LS:GetUInt32(5)
+            cost = LS:GetUInt32(2),
+            timer = LS:GetUInt32(3),
+            operation = LS:GetUInt32(4),
+            mumax = LS:GetUInt32(5),
+            require = LS:GetUInt32(6)
         };
     else
         error("No settings found for lotto, cant start")
@@ -119,6 +120,7 @@ local function LottoOnSelect(event, player, unit, sender, intid, code)
                 lotto.saved = nil
                 lotto.count = lotto.count+1
                 player:SendBroadcastMessage("You have entered "..lotto.count.." times.")
+ 				player:RemoveItem(LottoSettings.item, LottoSettings.cost)
             end
         end
     end
