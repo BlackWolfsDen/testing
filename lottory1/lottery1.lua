@@ -77,10 +77,8 @@ local function Tally(event)
         local bet = winlotto.count*multiplier
         SendWorldMessage("Contgratulations to "..winlotto.name.." our new winner. Total:"..(pot+bet)..". Its LOCO!!")
         player:AddItem(LottoSettings.item, (pot+bet))
+        LottoDeleteAll()
 
-        for a=1, #LottoEntries do
-            FlushLotto(a)
-        end
     else
         -- Instead of this, could just get a new winner that is online, since atm there sorta is always a winner if all players are online
         -- Or then think of some other logic that this isnt so random
@@ -92,7 +90,6 @@ local function Tally(event)
         LottoTimer = nil
     end
     
-    LottoDeleteAll()
 end
 
 local function LottoOnHello(event, player, unit)
