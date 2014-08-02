@@ -17,13 +17,12 @@ USE `lotto`;
 
 -- Dumping structure for table lotto.entries
 CREATE TABLE IF NOT EXISTS `entries` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `guid` int(11) unsigned NOT NULL,
+  `guid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `count` int(11) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`guid`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table lotto.entries: ~0 rows (approximately)
+-- Dumping data for table lotto.entries: ~4 rows (approximately)
 /*!40000 ALTER TABLE `entries` DISABLE KEYS */;
 /*!40000 ALTER TABLE `entries` ENABLE KEYS */;
 
