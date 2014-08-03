@@ -41,16 +41,36 @@ local function LottoLoader()
         error("No settings found for lotto, cant start")
     end
 
-    local LE = CharDBQuery("SELECT `guid`, `count` FROM lotto.entries")
+    local LE = CharDBQuery("SELECT * FROM lotto.entries") -- `guid`, `count`
     if (LE) then
         repeat
-            LottoEntries[LE:GetUInt32(0)] = {
-                guid = LE:GetUInt32(0),
-                count = LE:GetUInt32(1),
+            LottoEntriez[LE:GetUInt32(0)] = {
+                id = GetUInt32(0),
+                name = LE:GetString(1),
+                guid = LE:GetUInt32(2),
+                count = LE:GetUInt32(3),
                 saved = true
             };
         until not LE:NextRow()
     end
+end
+
+local function GetEntries()
+LottoEntries = {}
+    if(#LottoEntriez)then
+        for a=1, #LottoEntriez do
+                if(LottoEntriez[a].count > 0)then
+                    LottoEntries[LottoEntriez[a].id] = {
+                        id = LottoEntriez[a].id,
+                        name = LottoEntriez[a].name,
+                        guid = LottoEntriez[a].guid,
+                        count = LottoEntriez[a].count,
+                        saved = true
+                                                        };
+                end
+        end
+    end
+return #LottoEntries
 end
 
 local function Tally(event)
