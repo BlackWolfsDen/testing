@@ -56,22 +56,29 @@ local function LottoLoader()
 end
 
 local function GetEntries()
-LottoEntries = {}
+local tic = 0
+LottoEntries = {};
     if(#LottoEntriez)then
+        
         for a=1, #LottoEntriez do
-                if(LottoEntriez[a].count > 0)then
-                    LottoEntries[LottoEntriez[a].id] = {
-                        id = LottoEntriez[a].id,
-                        name = LottoEntriez[a].name,
-                        guid = LottoEntriez[a].guid,
-                        count = LottoEntriez[a].count,
-                        saved = true
-                                                        };
-                end
+            
+            if(LottoEntriez[a].count > 0)then
+                
+                local tic = tic + 1
+                LottoEntries[tic] = {
+                    id = LottoEntriez[a].id,
+                    name = LottoEntriez[a].name,
+                    guid = LottoEntriez[a].guid,
+                    count = LottoEntriez[a].count,
+                    saved = true
+                                    };
+            end
         end
     end
 return #LottoEntries
 end
+
+GetEntries()
 
 local function Tally(event)
     
