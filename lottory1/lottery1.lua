@@ -30,12 +30,12 @@ local function LottoLoader()
     local LS = CharDBQuery("SELECT * FROM lotto.settings")
     if (LS) then
         LottoSettings = {
-            item = LS:GetUInt32(1),
-            cost = LS:GetUInt32(2),
-            timer = LS:GetUInt32(3),
-            operation = LS:GetUInt32(4),
-            mumax = LS:GetUInt32(5),
-            require = LS:GetUInt32(6)
+            item = LS:GetUInt32(0),
+            cost = LS:GetUInt32(1),
+            timer = LS:GetUInt32(2),
+            operation = LS:GetUInt32(3),
+            mumax = LS:GetUInt32(4),
+            require = LS:GetUInt32(5)
         };
     else
         error("No settings found for lotto, cant start")
