@@ -45,7 +45,7 @@ local function LottoLoader()
     if (LE) then
         repeat
             LottoEntriez[LE:GetUInt32(0)] = {
-                id = GetUInt32(0),
+                id = LE:GetUInt32(0),
                 name = LE:GetString(1),
                 guid = LE:GetUInt32(2),
                 count = LE:GetUInt32(3),
@@ -77,8 +77,6 @@ LottoEntries = {};
     end
 return #LottoEntries
 end
-
-GetEntries()
 
 local function Tally(event)
     
@@ -160,6 +158,8 @@ local function OnSave(event, player)
 end
 
 LottoLoader()
+GetEntries()
+
 RegisterCreatureGossipEvent(npcid, 1, LottoOnHello)
 RegisterCreatureGossipEvent(npcid, 2, LottoOnSelect)
 RegisterPlayerEvent(25, OnSave)
